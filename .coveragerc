@@ -1,0 +1,25 @@
+[run]
+source = src/muxer
+branch = true
+parallel = true
+
+[paths]
+source =
+    src/muxer
+    */site-packages/muxer
+
+[report]
+show_missing = true
+skip_empty = true
+precision = 1
+fail_under = 50
+exclude_lines =
+    pragma: no cover
+    def __repr__
+    if TYPE_CHECKING
+    raise NotImplementedError
+    pass
+    \.\.\.
+
+[html]
+directory = htmlcov

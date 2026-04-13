@@ -1,0 +1,51 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "muxer"
+version = "0.1.0"
+description = "A modern, Textual-based workspace manager for tmuxp and git worktrees."
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+authors =[
+    { name = "Developer", email = "dev@example.com" }
+]
+dependencies =[
+    "textual>=0.50.0",     # For the rich TUI
+    "pydantic>=2.6.0",     # For our own app settings (e.g., configuring worktree roots)
+    "tmuxp>=1.43.0",       # Handles the tmux config loading and building (includes libtmux)
+]
+
+[project.scripts]
+muxer = "muxer.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages =["src/muxer"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select =["E", "W", "F", "I", "UP", "B", "SIM", "RUF"]
+ignore = []
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+addopts = "--cov --cov-report=term-missing"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.3",
+    "pytest-asyncio>=1.3.0",
+    "pytest-cov>=7.1.0",
+]
