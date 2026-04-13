@@ -30,15 +30,15 @@
 The recommended way to install `muxer` globally is using `uv tool` (or `pipx`):
 
 ```bash
-uv tool install git+https://github.com/yourusername/muxer.git
+uv tool install git+https://github.com/id-b3/muxer.git
 # or
-pipx install git+https://github.com/yourusername/muxer.git
+pipx install git+https://github.com/id-b3/muxer.git
 ```
 
 If you are developing locally:
 
 ```bash
-git clone https://github.com/yourusername/muxer.git
+git clone https://github.com/id-b3/muxer.git
 cd muxer
 uv sync
 uv run muxer
